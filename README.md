@@ -23,6 +23,9 @@ flags **what is still missing**.
 | 6 | Consensus-layer spec | [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) | ✅ Draft PR ([bomanaps#5403](https://github.com/ethereum/consensus-specs/pull/5403)) |
 | 7 | Client implementation | [hyperledger/besu](https://github.com/hyperledger/besu) | ⚠️ SLOTNUM only (EIP-7843) |
 | 8 | Project coordination | [jflo/lucid-pm](https://github.com/jflo/lucid-pm) | ✅ This repo |
+| 9 | **EIP-8491** spec (key publisher priority lists) | [ethereum/EIPs](https://github.com/ethereum/EIPs) | ✅ Draft PR ([#12646](https://github.com/ethereum/EIPs/pull/12646)) |
+| 10 | **EIP-8491** CL spec | [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) | ❌ Missing (to be added on top of #5403) |
+| 11 | **EIP-8491** EL implementation | [ethereum/execution-specs](https://github.com/ethereum/execution-specs) | ❌ Missing |
 
 Legend: ✅ exists · ⚠️ partial · ❌ not yet present.
 
