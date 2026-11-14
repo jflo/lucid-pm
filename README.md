@@ -13,18 +13,34 @@ flags **what is still missing**.
 
 ## Status at a glance
 
+Legend: ✅ exists · ⚠️ partial · ❌ not yet present.
+
 | # | Need | Repo | Status |
 |---|------|------|--------|
 | 1 | EIP specification | [ethereum/EIPs](https://github.com/ethereum/EIPs) | ✅ Published (Draft) |
 | 2 | EL reference implementation | [ethereum/execution-specs](https://github.com/ethereum/execution-specs) | ✅ Draft PR ([jflo#1](https://github.com/jflo/execution-specs/pull/1)) |
 | 3 | EL reference tests | [ethereum/execution-specs](https://github.com/ethereum/execution-specs) | ⚠️ Partial (in PR #1) |
-| 4 | Conformance fixtures | [ethereum/execution-spec-tests](https://github.com/ethereum/execution-spec-tests) | ❌ Missing |
-| 5 | Execution APIs (JSON-RPC / Engine) | [ethereum/execution-apis](https://github.com/ethereum/execution-apis) | ❌ Missing |
-| 6 | Consensus-layer spec | [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) | ❌ Missing |
-| 7 | Client implementation | [hyperledger/besu](https://github.com/hyperledger/besu) | ⚠️ SLOTNUM only (EIP-7843) |
-| 8 | Project coordination | [jflo/lucid-pm](https://github.com/jflo/lucid-pm) | ✅ This repo |
+| 4 | Execution APIs (JSON-RPC / Engine) | [ethereum/execution-apis](https://github.com/ethereum/execution-apis) | ❌ Missing |
+| 5 | Consensus-layer spec | [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) | ✅ Draft PR ([bomanaps#5403](https://github.com/ethereum/consensus-specs/pull/5403)) |
+| 6 | Client implementation | [hyperledger/besu](https://github.com/hyperledger/besu) | ⚠️ SLOTNUM only (EIP-7843) |
+| 7 | Project coordination | [jflo/lucid-pm](https://github.com/jflo/lucid-pm) | ✅ This repo |
 
-Legend: ✅ exists · ⚠️ partial · ❌ not yet present.
+### EIP-8491 — LUCID key publisher priority lists
+
+Follow-up EIP by Jannik Luhn (@jannikluhn) extending EIP-8184 with
+validator-managed key publisher priority. Draft:
+[#12646](https://github.com/ethereum/EIPs/pull/12646) ·
+[discussion](https://ethereum-magicians.org/t/eip-8491-lucid-key-publisher-priority-lists/30330).
+Requires EIP-7002, 7685, 7732, 8184, 8282; hard-fork changes.
+
+| # | Need | Repo | Status |
+|---|------|------|--------|
+| 1 | EIP specification | [ethereum/EIPs](https://github.com/ethereum/EIPs) | ✅ Draft PR ([#12646](https://github.com/ethereum/EIPs/pull/12646)) |
+| 2 | Consensus-layer spec (vote lists, subscriptions, priority derivation) | [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) | ❌ Missing (layered on [bomanaps#5403](https://github.com/ethereum/consensus-specs/pull/5403)) |
+| 3 | EL reference implementation — ST ticket & key-message changes | [ethereum/execution-specs](https://github.com/ethereum/execution-specs) | ❌ Missing |
+| 4 | Key publisher vote registry system contract | New system contract (`KEY_PUBLISHER_VOTE_REGISTRY_ADDRESS`, TBD) | ❌ Missing |
+| 5 | EL reference tests | [ethereum/execution-specs](https://github.com/ethereum/execution-specs) | ❌ Missing |
+| 6 | Client implementation (EL system call + CL request processing) | [hyperledger/besu](https://github.com/hyperledger/besu) & CL clients | ❌ Missing |
 
 ---
 
@@ -123,17 +139,7 @@ Tests that pin the reference implementation's behaviour.
 - **Status:** Exists for the implemented surface; coverage will grow with the
   spec.
 
-### 4. Consensus-validity / fixture tests — ❌ not yet present
-
-Client-agnostic conformance fixtures.
-
-- **Where it belongs:** [ethereum/execution-spec-tests](https://github.com/ethereum/execution-spec-tests),
-  under `tests/<fork>/eip8184_lucid/`.
-- **Status:** **Missing.** No LUCID test module exists yet.
-- **Need:** Port/author fixtures here once the EIP and fork are stable so all
-  clients can validate against a shared suite.
-
-### 5. Execution APIs (JSON-RPC / Engine API) — ❌ not yet present
+### 4. Execution APIs (JSON-RPC / Engine API) — ❌ not yet present
 
 How sealed tickets, commitments, and key messages are submitted and surfaced
 over the wire.
@@ -145,7 +151,7 @@ over the wire.
   commitments, and exchange payloads/keys with the consensus layer across the
   Engine API.
 
-### 6. Consensus-layer specification — ❌ not yet present
+### 5. Consensus-layer specification — ❌ not yet present
 
 LUCID requires CL participation: commitment dissemination, the key-publication
 mechanism, and scheduling.
@@ -160,7 +166,7 @@ mechanism, and scheduling.
   (`scheduling_beacon_block_root`, `scheduling_slot`, `commit_index`), and the
   key publisher's duties/penalties.
 
-### 7. Client implementations — ⚠️ prerequisite only (Besu)
+### 6. Client implementations — ⚠️ prerequisite only (Besu)
 
 Production client support.
 
@@ -176,7 +182,7 @@ Production client support.
   processing, and CL coordination in Besu (and track the other clients
   externally).
 
-### 8. Project coordination — ✅ this repo
+### 7. Project coordination — ✅ this repo
 
 - **Where it lives:** [jflo/lucid-pm](https://github.com/jflo/lucid-pm).
 - **Need:** Keep this README current as the map of who owns what and where each
