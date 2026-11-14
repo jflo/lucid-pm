@@ -20,7 +20,7 @@ flags **what is still missing**.
 | 3 | EL reference tests | [ethereum/execution-specs](https://github.com/ethereum/execution-specs) | ⚠️ Partial (in PR #1) |
 | 4 | Conformance fixtures | [ethereum/execution-spec-tests](https://github.com/ethereum/execution-spec-tests) | ❌ Missing |
 | 5 | Execution APIs (JSON-RPC / Engine) | [ethereum/execution-apis](https://github.com/ethereum/execution-apis) | ❌ Missing |
-| 6 | Consensus-layer spec | [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) | ❌ Missing |
+| 6 | Consensus-layer spec | [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs) | ✅ Draft PR ([bomanaps#5403](https://github.com/ethereum/consensus-specs/pull/5403)) |
 | 7 | Client implementation | [hyperledger/besu](https://github.com/hyperledger/besu) | ⚠️ SLOTNUM only (EIP-7843) |
 | 8 | Project coordination | [jflo/lucid-pm](https://github.com/jflo/lucid-pm) | ✅ This repo |
 
